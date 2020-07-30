@@ -36,16 +36,10 @@ object RecFun extends RecFunInterface {
    */
   def balance(chars: List[Char]): Boolean = {
     def balLoop(state: Int, chars: List[Char]): Boolean =
-      if (chars.isEmpty) {
-        if (state == 0)
-          true
-        else
-          false
-      }
+      if (chars.isEmpty)
+        (state == 0)
       else if (state < 0)
-        {
-          false
-        }
+        false
       else {
         if (chars.head == '(')
           balLoop(state + 1, chars.tail)
